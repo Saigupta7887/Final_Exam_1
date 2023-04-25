@@ -4,18 +4,7 @@ const fs = require("fs");
 const cors = require("cors");
 const server = http.createServer((req, res) => {
 
-    /*
-
-
-
-        we can Navigate to different pages via different requests.
-        if / then goto index.html
-        if /about about then goto about.html
-        if /api then laod the JSON file  /  ;) this might be something you need for your exam.
-
-
-
-    */
+    
 
 
     var corsOptions = {
