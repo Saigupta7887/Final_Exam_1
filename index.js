@@ -12,7 +12,6 @@ const server = http.createServer((req, res) => {
     };
     // server.use(cors());
     if (req.url === '/') {
-        // read public.html file from public folder
         fs.readFile(path.join(__dirname, 'public', 'index.html'),
             (err, content) => {
 
@@ -23,20 +22,6 @@ const server = http.createServer((req, res) => {
         );
     }
 
-    else if (req.url === '/about') {
-
-
-        // read the about.html file public folder
-        fs.readFile(
-            path.join(__dirname, 'public', 'about.html'),
-            (err, content) => {
-
-                if (err) throw err;
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.end(content);
-            }
-        );
-    }
     else if (req.url==='/api')
     {
         fs.readFile(
