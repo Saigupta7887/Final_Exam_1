@@ -39,11 +39,7 @@ const server = http.createServer((req, res) => {
         res.end("<h1> 404 nothing is here</h1>");
     }
 
-    /*
-
-        But what if we have  1000 pages/urls ? do we need to write 1000 if-else statements?
-
-    /*/
+    
 });
 
 const PORT= process.env.PORT || 5959;
