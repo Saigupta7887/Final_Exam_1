@@ -1,0 +1,43 @@
+[
+  {
+    "id":1,
+    "companyname":"Apple",
+    "Establishedyear": 1976,
+    "ranking": 1,
+    "networth": 2614,
+    "website": "www.apple.com"
+
+  },
+  {
+    "id":2,
+    "companyname":"Amazon",
+    "Establishedyear": 1994,
+    "ranking": 2,
+    "networth": 1007,
+    "website": "www.amazon.com"
+  },
+  {
+    "id":3,
+    "companyname":"Walmart",
+    "Establishedyear": 1962,
+    "ranking": 3,
+    "networth": 388,
+    "website": "www.walmart.com"
+  },
+  {
+    "id":4,
+    "companyname":"CVS",
+    "Establishedyear": 1963,
+    "ranking": 4,
+    "networth": 97,
+    "website": "www.cvs.com"
+  },
+  {
+    "id":5,
+    "companyname":"Reliance",
+    "Establishedyear":1958 ,
+    "ranking": 5,
+    "networth": 80,
+    "website": "www.reliance.com"
+  }
+]
