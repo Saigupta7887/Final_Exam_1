@@ -1,18 +1,14 @@
 const http = require("http");
 const path = require("path");
 const fs = require("fs");
-const cors = require("cors");
+
 const server = http.createServer((req, res) => {
     
        res.setHeader('Access-Control-Allow-Origin', '*');
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST')
 
-    
 
-
-    var corsOptions = {
-        origin: "*",
-    };
+   
     if (req.url === '/') {
         fs.readFile(path.join(__dirname, 'public', 'index.html'),
             (err, content) => {
@@ -44,6 +40,6 @@ const server = http.createServer((req, res) => {
     
 });
 
-const PORT= process.env.PORT || 5959;
+const PORT= process.env.PORT || 4552;
 
 server.listen(PORT,()=> console.log(`Great our server is running on port ${PORT} `));
