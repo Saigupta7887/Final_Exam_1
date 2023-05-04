@@ -22,16 +22,48 @@ const server = http.createServer((req, res) => {
 
     else if (req.url==='/api')
     {
-        fs.readFile(
-            path.join(__dirname, 'public', 'db.json'),'utf-8',
-            (err, content) => {
 
-                if (err) throw err;
-                // Please note the content-type here is application/json
-                res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.end(content);
-            }
-        );
+       var input;
+
+       const { MongoClient } = require('mongodb');
+
+       main(processData);
+       async function main(callback) {
+
+           const uri = "mongodb+srv://sais:Neural@saicluster.xivdgvr.mongodb.net/?retryWrites=true&w=majority ";
+           const client = new MongoClient(uri, { useUnifiedTopology: true });
+
+           try {
+              
+               await client.connect();
+               const carCollection = client.db('bookdb').collection('bookcollection');
+               const collectionData = {
+
+                   books: await carCollection.find().toArray()
+               };
+               
+               console.log(collectionData);
+
+
+               input = collectionData;
+              
+               console.log(input);
+               callback(input);
+
+           } catch (err) {
+               console.error(err);
+           } finally {
+               await client.close();
+               console.log('Disconnected from cluster');
+           }
+       }
+       function processData(data) {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST')
+        res.writeHead(200, { 'Content-type': 'application/json' })
+        res.end(JSON.stringify(data));
+    }
+
     }
     else{
         res.end("<h1> 404 nothing is here</h1>");
