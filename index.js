@@ -36,10 +36,10 @@ const server = http.createServer((req, res) => {
            try {
               
                await client.connect();
-               const carCollection = client.db('bookdb').collection('bookcollection');
+               const saiCollection = client.db('bookdb').collection('bookcollection');
                const collectionData = {
 
-                   books: await carCollection.find().toArray()
+                   books: await saiCollection.find().toArray()
                };
                
                console.log(collectionData);
@@ -54,7 +54,6 @@ const server = http.createServer((req, res) => {
                console.error(err);
            } finally {
                await client.close();
-               console.log('Disconnected from cluster');
            }
        }
        function processData(data) {
